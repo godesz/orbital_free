@@ -1,13 +1,8 @@
-## Code to solve Poisson's equation
-
 ## Compute distances dr to center point in cell
 dr= sqrt(sum((ones(prod(S),1)*sum(R,2)'/2-r).^2,2)); ## <=== CODE INSERTION # 1
-
-## Compute one normalized Gaussian (widths 0.25)
 sigma1=0.25
 g1=exp(-dr.^2/(2*sigma1^2))/(sqrt(2*pi*sigma1^2)^3*Z)
 
-## Use structure factor to create all atoms
 n=cI(cJ(g1).*Sf); 
 #n=cJ(g1)#.*Sf); 
 n=real(n)
@@ -23,8 +18,6 @@ n=real(n)
 #  fprintf("#s (Hit <enter>... )\n",text)
 #  mesh(slice(n,S,S(dir)/2,dir)); pause
 #end
-
-#### Solve Poisson's equation
 ##
 phi=cI(Linv(-4*pi*O(cJ(n))))
 ####Due to rounding; tiny imaginary parts creep into the solution.  Eliminate
