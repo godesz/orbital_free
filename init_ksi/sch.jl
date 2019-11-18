@@ -1,4 +1,3 @@
-## Code to solve Shrodinger's equation
 global gbl_f
 gbl_f=1
 ## Compute square of distances dr to center point in cell
@@ -7,7 +6,6 @@ dr2= sum((ones(prod(S),1)*sum(R,2)'/2-r).^2,2)
 dr=r-ones(prod(S),1)*diag(R)'/2
 dr=sqrt(sum(dr.^2,2))
 
-## Compute harmonic oscillator potential of frequency omega
 omega=4
 V=0.5*omega*dr2
 Vc=0.5*4*dr.^2
