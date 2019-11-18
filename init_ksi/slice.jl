@@ -1,12 +1,3 @@
-# Function to extract two dimensional slices from a 3d data set
-#
-# Usage: out=slice(dat,N,n,dir)
-#
-# out: n-th dir-plane of dat [lower remaining dimension leading]
-# n: desired slice number from data; 1 <= n <= N(dir)
-# dir: direction perpendicular to slice --- dir=1;2;3 gives yz;xz;yz planes
-# dat: 3d data set (any shape) of total size prod(N)=N(1)*N(2)*N(3)
-# N: dimensions of dat in a 3-vector
 
 function out=slice(dat,N,n,dir)
   n=floor(n); ## Be sure to take integer part to avoid errors
