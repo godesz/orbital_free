@@ -4,7 +4,7 @@ global gbl_Vdual;
 global gbl_R;
 global gbl_G2;
 
-# Forward transform (acting on 3d data sets)
+# Forward transform 
 #
 # Usage: out=cI(in)
 #
@@ -23,7 +23,7 @@ function cI(in)
   return out
 end
 
-# Dual Forward transform (acting on 3d data sets)
+# Dual Forward transform 
 #
 # Usage: out=cIdag(in)
 #
@@ -41,7 +41,7 @@ function cIdag(in)
   return out
 end
 
-# Inverse transform (acting on 3d data sets)
+# Inverse transform 
 #
 # Usage: out=cJ(in)
 #
@@ -59,7 +59,7 @@ function cJ(in)
   return out
 end
 
-# Dual inverse transform (acting on 3d data sets)
+# Dual inverse transform 
 #
 # Usage: out=cJdag(in)
 #
@@ -72,7 +72,7 @@ function cJdag(in)
   #out=zeros(size(in))
   out=Array(Complex{Float64},size(in,1),size(in,2))
   for col=1:size(in,2)
-    out[:,col]= fft3(in[:,col],gbl_S,1)/prod(gbl_S); ## <=== YOUR CODE HERE
+    out[:,col]= fft3(in[:,col],gbl_S,1)/prod(gbl_S); 
   end
   return out
 end
@@ -95,7 +95,7 @@ function Diagprod(a,B)
   return out
 end
 
-## out=fft3(dat,N,s) - computes 3d fft (dimensions in N) of sign s
+## out=fft3(dat,N,s)
 ## out[l,m,n)=sum_{a,b,c} exp(2 pi s i *(a*l/N(1)+b*m/N(2)+c*n/N(3))*in(a,b,c].
 ## Notes: 1) fortran/matlab ordering assumed, ordering in mem is out[1,1,1]
 ##           out[2,1,1), ..., out(N(1),1,1), out(1,2,1], ...
